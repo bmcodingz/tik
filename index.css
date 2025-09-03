@@ -63,3 +63,58 @@ body {
     background: rgba(255, 255, 255, 0.35);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: calc(100vh - 80px);
+    background: linear-gradient(135deg, #ffffff, #e6fdf2);
+    ;
+    padding: 0 2rem;
+    gap: 2rem;
+}
+
+.hero-left {
+    flex: 0 0 40%;
+}
+
+.hero-left img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    object-fit: cover;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-left img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+.hero-right {
+    flex: 1;
+    max-width: 55%;
+    padding: 1rem;
+    color: black;
+}
+
+.hero-right h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.hero-right .tick {
+    font-size: 2.5rem;
+    color: #4ade80;
+}
+
+.hero-right p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
