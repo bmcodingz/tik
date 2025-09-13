@@ -158,3 +158,86 @@ footer {
 footer p {
     font-size: 1rem;
 }
+
+@media (max-width: 1024px) {
+    .hero-articles {
+        padding: 3rem 1.5rem;
+    }
+
+    .hero-articles h1 {
+        font-size: 2.5rem;
+    }
+
+    .article-cards {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1.8rem;
+        justify-content: center;
+    }
+
+    .article-card img {
+        height: 160px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .details {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 1rem 0 0 0;
+        gap: 1rem;
+    }
+
+    .article-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .article-card img {
+        height: 180px;
+    }
+
+    .btn-details {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-articles h1 {
+        font-size: 2rem;
+    }
+
+    .hero-articles p {
+        font-size: 1rem;
+    }
+
+    .details a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.6rem;
+    }
+
+    .article-card img {
+        height: 150px;
+    }
+
+    .article-card h3 {
+        font-size: 1rem;
+    }
+
+    .article-card p {
+        font-size: 0.9rem;
+    }
+
+    .btn-details {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
