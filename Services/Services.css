@@ -295,42 +295,83 @@ footer p {
         font-size: 1.8rem;
     }
 
+    .service-cards {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1.5rem;
+    }
+
     .section-card img {
         height: 160px;
     }
 }
 
 @media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+        text-align: center;
+    }
+
     .details {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 1rem 0 0 0;
         gap: 1rem;
-        margin-right: 2rem;
     }
 
     .service-cards {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .section-card img {
-        height: 180px;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-services h1 {
-        font-size: 2rem;
-    }
-
-    .hero-services p {
-        font-size: 1rem;
-    }
-
-    .details a {
-        font-size: 0.9rem;
-        padding: 0.4rem 0.6rem;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1.2rem;
     }
 
     .section-card img {
         height: 150px;
+    }
+
+    .modal-content {
+        max-width: 90%;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .details {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .service-cards {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .section-card img {
+        height: 140px;
+    }
+
+    .section-card h3 {
+        font-size: 1rem;
+    }
+
+    .section-card p {
+        font-size: 0.9rem;
+    }
+
+    .btn-details {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .modal-content {
+        padding: 1rem;
+    }
+
+    .modal-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .modal-content p {
+        font-size: 0.9rem;
     }
 }
