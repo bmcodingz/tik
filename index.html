@@ -63,34 +63,64 @@
         </section>
 
         <section class="products">
+
             <h2>محصولات محبوب</h2>
-            <div class="product-cards">
-                <div class="card">
-                    <img src="./img/Products/1/1.jpg" alt="محصول 1">
-                    <br>
-                    <h3>Apple MacBook Pro 14</h3>
-                    <br>
-                    <p> قیمت: 12.000.000 تومان</p>
-                    <a href="#" class="btn">مشاهده</a>
+
+            <div class="product-list">
+                <!-- محصول 1 -->
+                <div class="product-card" data-name="MacBook Air 13-inch (M4)"
+                    data-desc="Apple M4 | 16-32 GB RAM | 256 GB-2 TB SSD" data-price="35,000,000 تومان">
+                    <img src="./img/Products/1/1.webp" alt="ایسوس X515" class="main-img">
+                    <div class="extra-images" style="display: none;">
+                        <img src="./img/Products/1/2.webp" alt="ایسوس X515 - عکس 1">
+                        <img src="./img/Products/1/3.webp" alt="ایسوس X515 - عکس 2">
+                    </div>
+                    <h3>MacBook Air 13-inch (M4)</h3>
+                    <p>35,000,000 تومان</p>
+                    <button class="btn-details">جزئیات</button>
                 </div>
-                <div class="card">
-                    <img src="./img/Products/2/1.jpg" alt="محصول 2">
-                    <br>
-                    <h3>HP ProBook 455</h3>
-                    <br>
-                    <p> قیمت: 13.000.000 تومان</p>
-                    <a href="#" class="btn">مشاهده</a>
+
+                <!-- محصول 2 -->
+                <div class="product-card" data-name="Asus Chromebook CM14"
+                    data-desc="MediaTek Kompanio 520 | 4 GB RAM | 64 GB eMMC" data-price="12,000,000 تومان">
+                    <img src="./img/Products/2/1.webp" alt="ایسوس X515" class="main-img">
+                    <div class="extra-images" style="display: none;">
+                        <img src="./img/Products/2/2.webp" alt="ایسوس X515 - عکس 1">
+                        <img src="./img/Products/2/3.webp" alt="ایسوس X515 - عکس 2">
+                    </div>
+                    <h3>Asus Chromebook CM14</h3>
+                    <p>12,000,000 تومان</p>
+                    <button class="btn-details">جزئیات</button>
                 </div>
-                <div class="card">
-                    <img src="./img/Products/3/1.jpg" alt="محصول 3">
-                    <br>
-                    <h3> Apple iPad 2020</h3>
-                    <br>
-                    <p> قیمت: 19.000.000 تومان</p>
-                    <a href="#" class="btn">مشاهده</a>
+
+                <!-- محصول 3 -->
+                <div class="product-card" data-name="Surface Laptop 13-inch (7th Gen)"
+                    data-desc="Snapdragon X Plus | 16 GB RAM | 256-512 GB SSD" data-price="30,000,000 تومان">
+                    <img src="./img/Products/3/1.webp" alt="ایسوس X515" class="main-img">
+                    <div class="extra-images" style="display: none;">
+                        <img src="./img/Products/3/2.webp" alt="ایسوس X515 - عکس 1">
+                    </div>
+                    <h3>Surface Laptop 13-inch (7th Gen)</h3>
+                    <p>30,000,000 تومان</p>
+                    <button class="btn-details">جزئیات</button>
+                </div>
+
+        </section>
+
+        <div class="modal" id="productModal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalTitle"></h2>
+                <p id="modalPrice"></p>
+                <p id="modalDesc"></p>
+
+                <div class="modal-slider">
+                    <span class="prev">&#10094;</span>
+                    <div class="slider-images"></div>
+                    <span class="next">&#10095;</span>
                 </div>
             </div>
-        </section>
+        </div>
 
         <section class="services">
             <h2>ویژگی ما</h2>
