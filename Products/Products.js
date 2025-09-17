@@ -6,11 +6,15 @@ const sliderImages = modal.querySelector(".slider-images");
 const prevBtn = modal.querySelector(".prev");
 const nextBtn = modal.querySelector(".next");
 const closeBtn = modal.querySelector(".close");
+const detailButtons = document.querySelectorAll(".btn-details");
+const searchInput = document.querySelector(".search-input");
+const sortSelect = document.querySelector(".sort-select");
+const filterBtn = document.querySelector(".btn-filter");
+const productsContainer = document.querySelector(".products");
+const productCards = Array.from(document.querySelectorAll(".product-card"));
 
 let currentIndex = 0;
 let images = [];
-
-const detailButtons = document.querySelectorAll(".btn-details");
 
 detailButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -19,7 +23,6 @@ detailButtons.forEach((btn) => {
         modalPrice.textContent = card.dataset.price;
         modalDesc.textContent = card.dataset.desc;
 
-        // بارگذاری تصاویر
         images = [card.querySelector(".main-img").src];
         const extraImgs = card.querySelectorAll(".extra-images img");
         extraImgs.forEach(img => images.push(img.src));
@@ -55,24 +58,15 @@ window.addEventListener("click", (e) => {
     }
 });
 
-// -------------------- فیلتر و مرتب‌سازی --------------------
-const searchInput = document.querySelector(".search-input");
-const sortSelect = document.querySelector(".sort-select");
-const filterBtn = document.querySelector(".btn-filter");
-const productsContainer = document.querySelector(".products");
-const productCards = Array.from(document.querySelectorAll(".product-card"));
-
 function applyFilter() {
     const searchText = searchInput.value.toLowerCase();
     const sortValue = sortSelect.value;
 
-    // فیلتر بر اساس جستجو
     productCards.forEach(card => {
         const name = card.dataset.name.toLowerCase();
         card.style.display = name.includes(searchText) ? "block" : "none";
     });
 
-    // مرتب‌سازی محصولات قابل مشاهده
     let visibleCards = productCards.filter(card => card.style.display !== "none");
 
     if (sortValue === "asc") {
@@ -80,17 +74,40 @@ function applyFilter() {
     } else if (sortValue === "desc") {
         visibleCards.sort((a, b) => parseInt(b.dataset.price.replace(/,/g, '')) - parseInt(a.dataset.price.replace(/,/g, '')));
     } else {
-        visibleCards.reverse(); // "جدیدترین" = معکوس ترتیب HTML
+        visibleCards.reverse();
     }
 
     visibleCards.forEach(card => productsContainer.appendChild(card));
 }
 
-// فقط با کلیک روی دکمه اعمال فیلتر
 filterBtn.addEventListener("click", applyFilter);
 
-// -------------------- پیش‌فرض هنگام بارگذاری صفحه --------------------
 window.addEventListener("DOMContentLoaded", () => {
-    sortSelect.value = "default"; // گزینه جدیدترین پیش‌فرض
-    applyFilter(); // اعمال مرتب‌سازی جدیدترین
+    sortSelect.value = "default";
+    applyFilter();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.details a');
+
+    function setActiveLink() {
+        const currentPath = window.location.pathname.split('/').pop();
+        navLinks.forEach(link => {
+            const linkPath = link.getAttribute('href').split('/').pop();
+            if (linkPath === currentPath) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    setActiveLink();
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            navLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+        });
+    });
 });

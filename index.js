@@ -6,11 +6,10 @@ const sliderImages = modal.querySelector(".slider-images");
 const prevBtn = modal.querySelector(".prev");
 const nextBtn = modal.querySelector(".next");
 const closeBtn = modal.querySelector(".close");
+const detailButtons = document.querySelectorAll(".btn-details");
 
 let currentIndex = 0;
 let images = [];
-
-const detailButtons = document.querySelectorAll(".btn-details");
 
 detailButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -19,7 +18,6 @@ detailButtons.forEach((btn) => {
         modalPrice.textContent = card.dataset.price;
         modalDesc.textContent = card.dataset.desc;
 
-        // بارگذاری تصاویر
         images = [card.querySelector(".main-img").src];
         const extraImgs = card.querySelectorAll(".extra-images img");
         extraImgs.forEach(img => images.push(img.src));
@@ -53,4 +51,30 @@ window.addEventListener("click", (e) => {
     if (e.target === modal) {
         modal.classList.remove("show");
     }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.details a');
+
+    function setActiveLink() {
+        const currentPath = window.location.pathname.split('/').pop();
+        navLinks.forEach(link => {
+            const linkPath = link.getAttribute('href').split('/').pop();
+            if (linkPath === currentPath) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    setActiveLink();
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+
+            navLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+        });
+    });
 });

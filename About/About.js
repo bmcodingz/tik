@@ -1,4 +1,5 @@
 const counters = document.querySelectorAll('.count');
+
 counters.forEach(counter => {
     counter.innerText = '0';
     const updateCounter = () => {
@@ -15,4 +16,29 @@ counters.forEach(counter => {
     updateCounter();
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.details a');
+
+    function setActiveLink() {
+        const currentPath = window.location.pathname.split('/').pop();
+        navLinks.forEach(link => {
+
+            const linkPath = link.getAttribute('href').split('/').pop();
+            if (linkPath === currentPath) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+
+    setActiveLink();
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            navLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+        });
+    });
+});
 

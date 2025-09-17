@@ -37,3 +37,29 @@ nextBtn.addEventListener("click", () => {
 function updateSlider() {
     sliderImages.innerHTML = `<img src="${currentImages[currentIndex]}" alt="Article Image">`;
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.details a');
+
+    const currentFile = window.location.pathname.split('/').pop().toLowerCase();
+
+    navLinks.forEach(link => {
+
+        const linkFile = link.getAttribute('href').split('/').pop().toLowerCase();
+
+        if (linkFile === currentFile) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+        });
+    });
+});
+F
